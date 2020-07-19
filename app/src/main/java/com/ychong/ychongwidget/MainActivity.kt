@@ -1,6 +1,7 @@
 package com.ychong.ychongwidget
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -13,15 +14,27 @@ import com.ychong.ychongwidget.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private var binding:ActivityMainBinding? = null
-    private var list:MutableList<String> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-
-        val adapter = TextRecyclerAdapter(this,list)
+        val adapter = TextRecyclerAdapter(this,ListUtils.getList())
         binding!!.recycler.layoutManager = LinearLayoutManager(this)
         binding!!.recycler.adapter = adapter
+
+        adapter.setItemClickListener(object : TextRecyclerAdapter.ItemClickListener{
+            override fun click(item: String) {
+                when(item){
+                    "LoadingDialog" ->{
+                        startActivity(Intent(this@MainActivity,LoadingDialogActivity::class.java))
+                    }
+                    "" ->{
+
+                    }
+                }
+            }
+
+        })
 
     }
 }
