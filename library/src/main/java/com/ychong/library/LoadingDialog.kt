@@ -9,17 +9,18 @@ import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
 import android.view.animation.RotateAnimation
 import com.ychong.library.databinding.DialogLoadingBinding
+import com.ychong.library.utils.ResUtils
 
 class LoadingDialog(context: Context) : Dialog(context) {
-    private var rotateAnimation: RotateAnimation? = null
-
-    //private var animation: Animation? = null
+    private var animation: Animation? = null
     private var binding: DialogLoadingBinding? = null
     private var text: String? = null
-    private var loadingRes: Int = -1
-    private var backgroundColor: Int = -1
-    private var width: Float = -1f
-    private var height: Float = -1f
+    private var textColor:Int? = null
+    private var loadingRes: Int? =null
+    private var backgroundColor: Int? =null
+    private var background:Int? = R.drawable.bg_333333_side_radius
+    private var width: Float? = null
+    private var height: Float? = null
     private var delayTime: Long = 3000
     private var dimAmount:Float = 0.2f
     private var isCan:Boolean = false
@@ -32,30 +33,22 @@ class LoadingDialog(context: Context) : Dialog(context) {
 
     private fun initRotate() {
         //动画
-        //animation = AnimationUtils.loadAnimation(context, R.anim.rotate)
-        rotateAnimation = RotateAnimation(
-            0f,
-            360f,
-            Animation.RELATIVE_TO_PARENT,
-            0.5f,
-            Animation.RELATIVE_TO_SELF,
-            0.5f
-        )
-        rotateAnimation!!.duration = this.delayTime
-        rotateAnimation!!.repeatMode = Animation.RESTART
-        rotateAnimation!!.repeatCount = Animation.INFINITE
-
+        animation = AnimationUtils.loadAnimation(context, R.anim.rotate)
         val lin = LinearInterpolator() //设置动画匀速运动
-        rotateAnimation!!.interpolator = lin
-        binding!!.loadingIv.startAnimation(rotateAnimation)
+
+        animation!!.interpolator = lin
+        binding!!.loadingIv.startAnimation(animation)
+
     }
 
-    fun setLoadingImg(loadingRes: Int): LoadingDialog {
+    fun setLoadingImg(loadingRes: Int?): LoadingDialog {
+        if (loadingRes==null)return this
         this.loadingRes = loadingRes
         return this
     }
 
-    fun setDelayTime(delayTime: Long): LoadingDialog {
+    fun setDelayTime(delayTime: Long?): LoadingDialog {
+        if (delayTime==null)return this
         this.delayTime = delayTime
         return this
     }
@@ -64,9 +57,20 @@ class LoadingDialog(context: Context) : Dialog(context) {
         this.text = text
         return this
     }
+    fun setTextColor(textColor:Int?):LoadingDialog{
+        if (textColor==null)return this
+        this.textColor = textColor
+        return this
+    }
 
-    fun setBackgroundColor(backgroundColor: Int): LoadingDialog {
+    fun setBackgroundColor(backgroundColor: Int?): LoadingDialog {
+        if (backgroundColor==null)return this
         this.backgroundColor = backgroundColor
+        return this
+    }
+    fun setBackground(background:Int?):LoadingDialog{
+        if (background == null)return this
+        this.background = background
         return this
     }
     fun isCan(isCan:Boolean?):LoadingDialog{
@@ -77,6 +81,16 @@ class LoadingDialog(context: Context) : Dialog(context) {
     fun setDimAmount(dimAmount:Float?):LoadingDialog{
         if (dimAmount==null||dimAmount<0||dimAmount>1)return this
         this.dimAmount = dimAmount
+        return this
+    }
+    fun setWidth(width:Float?):LoadingDialog{
+        if (width == null)return this
+        this.width = width
+        return this
+    }
+    fun setHeight(height:Float?):LoadingDialog{
+        if (height==null)return this
+        this.height = height
         return this
     }
 
@@ -93,16 +107,26 @@ class LoadingDialog(context: Context) : Dialog(context) {
         window?.setBackgroundDrawableResource(android.R.color.transparent)
         window?.setDimAmount(this.dimAmount)
         binding!!.loadingTv.text = this.text
-        binding!!.loadingIv.setImageResource(this.loadingRes)
-        binding!!.loadingLayout.setBackgroundColor(this.backgroundColor)
-        rotateAnimation!!.duration = this.delayTime
+        if (this.textColor!=null){
+            binding!!.loadingTv.setTextColor(ResUtils.getColor(context,this.textColor!!))
+        }
+        if (this.loadingRes!=null){
+            binding!!.loadingIv.setImageResource(this.loadingRes!!)
+        }
+        if (this.backgroundColor!=null){
+            binding!!.loadingLayout.setBackgroundColor(ResUtils.getColor(context,this.backgroundColor!!))
+        }
+        if (this.background!=null){
+            binding!!.loadingLayout.background = ResUtils.getDrawable(context,this.background!!)
+        }
         initRotate()
+
     }
 
     override fun dismiss() {
-        if (rotateAnimation != null) {
-            rotateAnimation!!.cancel()
-            rotateAnimation = null
+        if (animation != null) {
+            animation!!.cancel()
+            animation = null
         }
         super.dismiss()
     }

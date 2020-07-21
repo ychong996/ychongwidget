@@ -17,7 +17,7 @@ class LoadingDialogActivity : AppCompatActivity() {
         binding.loadingTv.setOnClickListener {
             showLoading()
         }
-        binding.loadingTv.setOnClickListener{
+        binding.cancleTv.setOnClickListener{
             hideLoading()
         }
     }
@@ -25,13 +25,13 @@ class LoadingDialogActivity : AppCompatActivity() {
 
     private var dialog: LoadingDialog? = null
     private fun showLoading() {
-        if (dialog == null) {
-            dialog = LoadingDialog(this)
-        }
+        dialog = LoadingDialog(this)
         dialog!!.setText("正在加载中")
-            .setBackgroundColor(R.color.colorAccent)
-            .setDelayTime(5000)
-            .setLoadingImg(R.mipmap.ic_launcher)
+            .setLoadingImg(R.mipmap.ic_loading)
+            .setTextColor(R.color.color_0D71DF)
+            .setBackgroundColor(R.color.color_red)
+            .setBackground(R.drawable.bg_333333_side_radius)
+            .isCan(true)
             .build()
     }
 
