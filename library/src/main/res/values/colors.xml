@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_333333">#333333</color>
+    <color name="color_E5E5E5">#E5E5E5</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_0D71DF">#0D71DF</color>
+    <!--密码输入颜色-->
+    <color name="divider_color">#BAC0D0</color>
+
+    <color name="color_FBFBFF">#FBFBFF</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="color_999999">#999999</color>
+    <color name="color_C1C6CC">#C1C6CC</color>
+    <color name="color_F0F0F5">#F0F0F5</color>
+    <color name="color_D4D7DE">#D4D7DE</color>
+    <color name="color_F87E08">#F87E08</color>
+    <color name="color_red">#FF0000</color>
+    <color name="color_1D8CE6">#149feb</color>
+
+    <color name="color_CBCBCB">#CBCBCB</color>
+    <color name="color_B1B8C8">#B1B8C8</color>
+
+    <color name="color_C4CADA">#C4CADA</color>
+    <color name="color_E6E7EB">#E6E7EB</color>
+
+    <color name="color_05B365">#05B365</color>
+    <color name="color_E0E7F0">#E0E7F0</color>
+
+    <color name="color_787E8D">#787E8D</color>
+
+    <color name="color_CCCCCC">#CCCCCC</color>
+
+    <color name="color989898">#989898</color>
+
+<!--    透明-->
+    <color name="color_translucent">#00ffffff</color>
+    <color name="color_DBDBDB">#DBDBDB</color>
+
+</resources>

@@ -6,6 +6,8 @@
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
     <TextView
+        android:layout_margin="@dimen/dp_16"
+        android:background="@color/color_999999"
         android:id="@+id/loadingTv"
         android:text="加载"
         android:textStyle="italic"
@@ -14,6 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"/>
     <TextView
+        android:background="@color/color_999999"
+        android:layout_margin="@dimen/dp_16"
         android:id="@+id/cancleTv"
         android:layout_gravity="center"
         android:gravity="center"

@@ -1,8 +1,9 @@
-package com.ychong.ychongwidget
+package com.ychong.ychongwidget.dialog
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.ychong.library.LoadingDialog
+import com.ychong.ychongwidget.R
 import com.ychong.ychongwidget.databinding.ActivityLoadingDialogBinding
 
 class LoadingDialogActivity : AppCompatActivity() {

@@ -1,16 +1,11 @@
 package com.ychong.ychongwidget
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Message
-import android.view.View
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ychong.library.LoadingDialog
 import com.ychong.ychongwidget.databinding.ActivityMainBinding
+import com.ychong.ychongwidget.dialog.*
 
 class MainActivity : AppCompatActivity() {
     private var binding:ActivityMainBinding? = null
@@ -26,10 +21,28 @@ class MainActivity : AppCompatActivity() {
             override fun click(item: String) {
                 when(item){
                     "LoadingDialog" ->{
-                        startActivity(Intent(this@MainActivity,LoadingDialogActivity::class.java))
+                        startActivity(Intent(this@MainActivity,
+                            LoadingDialogActivity::class.java))
                     }
-                    "" ->{
+                    "TipsDialog" ->{
+                        startActivity(Intent(this@MainActivity,TipsDialogActivity::class.java))
+                    }
+                    "InputDialog" ->{
+                        startActivity(Intent(this@MainActivity,
+                            InputDialogActivity::class.java))
 
+                    }
+                    "MessageDialog" ->{
+                        startActivity(Intent(this@MainActivity,
+                            MessageDialogActivity::class.java))
+                    }
+                    "ResultDialog" ->{
+                        startActivity(Intent(this@MainActivity,
+                        ResultDialogActivity::class.java))
+                    }
+                    "ToastDialog" ->{
+                        startActivity(Intent(this@MainActivity,
+                        ToastDialogActivity::class.java))
                     }
                 }
             }

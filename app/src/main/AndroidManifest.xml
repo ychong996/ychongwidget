@@ -16,7 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoadingDialogActivity" />
+        <activity android:name=".dialog.LoadingDialogActivity" />
+        <activity android:name=".dialog.InputDialogActivity" />
+        <activity android:name=".dialog.MessageDialogActivity" />
+        <activity android:name=".dialog.TipsDialogActivity" />
+        <activity android:name=".dialog.ResultDialogActivity" />
+        <activity android:name=".dialog.ToastDialogActivity" />
     </application>
 
 </manifest>
