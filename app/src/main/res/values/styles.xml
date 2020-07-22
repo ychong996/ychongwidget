@@ -7,4 +7,25 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+
+    <declare-styleable name="YCHButton">
+<!--        背景 按下颜色-->
+        <attr name="pressed_color" format="color"/>
+<!--        背景 正常状态颜色-->
+        <attr name="normal_color" format="color"/>
+<!--        背景 不可用状态下的颜色-->
+        <attr name="enabled_color" format="color"/>
+<!--        字体 按下颜色-->
+        <attr name="pressed_text_color" format="color"/>
+<!--        字体 正常颜色-->
+        <attr name="normal_text_color" format="color"/>
+<!--        字体 不可用状态下的颜色-->
+        <attr name="enabled_text_color" format="color"/>
+<!--        按钮圆角半径-->
+        <attr name="radius_size" format="dimension"/>
+<!--        gravity-->
+        <attr name="android:gravity"/>
+    </declare-styleable>
+
 </resources>

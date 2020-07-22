@@ -2,7 +2,7 @@ package com.ychong.ychongwidget.dialog
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ychong.library.MessageDialog
+import com.ychong.library.dialog.MessageDialog
 import com.ychong.ychongwidget.databinding.ActivityMessageDialogBinding
 
 class MessageDialogActivity : AppCompatActivity(){

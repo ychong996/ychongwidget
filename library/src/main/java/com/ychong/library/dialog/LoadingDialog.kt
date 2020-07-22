@@ -1,4 +1,4 @@
-package com.ychong.library
+package com.ychong.library.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -7,7 +7,7 @@ import android.view.Gravity
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
-import android.view.animation.RotateAnimation
+import com.ychong.library.R
 import com.ychong.library.databinding.DialogLoadingBinding
 import com.ychong.library.utils.ResUtils
 
@@ -18,7 +18,8 @@ class LoadingDialog(context: Context) : Dialog(context) {
     private var textColor:Int? = null
     private var loadingRes: Int? =null
     private var backgroundColor: Int? =null
-    private var background:Int? = R.drawable.bg_333333_side_radius
+    private var background:Int? =
+        R.drawable.bg_333333_side_radius
     private var width: Float? = null
     private var height: Float? = null
     private var delayTime: Long = 3000
@@ -33,7 +34,9 @@ class LoadingDialog(context: Context) : Dialog(context) {
 
     private fun initRotate() {
         //动画
-        animation = AnimationUtils.loadAnimation(context, R.anim.rotate)
+        animation = AnimationUtils.loadAnimation(context,
+            R.anim.rotate
+        )
         val lin = LinearInterpolator() //设置动画匀速运动
 
         animation!!.interpolator = lin
@@ -57,7 +60,7 @@ class LoadingDialog(context: Context) : Dialog(context) {
         this.text = text
         return this
     }
-    fun setTextColor(textColor:Int?):LoadingDialog{
+    fun setTextColor(textColor:Int?): LoadingDialog {
         if (textColor==null)return this
         this.textColor = textColor
         return this
@@ -68,27 +71,27 @@ class LoadingDialog(context: Context) : Dialog(context) {
         this.backgroundColor = backgroundColor
         return this
     }
-    fun setBackground(background:Int?):LoadingDialog{
+    fun setBackground(background:Int?): LoadingDialog {
         if (background == null)return this
         this.background = background
         return this
     }
-    fun isCan(isCan:Boolean?):LoadingDialog{
+    fun isCan(isCan:Boolean?): LoadingDialog {
         if (isCan==null)return this
         this.isCan = isCan
         return this
     }
-    fun setDimAmount(dimAmount:Float?):LoadingDialog{
+    fun setDimAmount(dimAmount:Float?): LoadingDialog {
         if (dimAmount==null||dimAmount<0||dimAmount>1)return this
         this.dimAmount = dimAmount
         return this
     }
-    fun setWidth(width:Float?):LoadingDialog{
+    fun setWidth(width:Float?): LoadingDialog {
         if (width == null)return this
         this.width = width
         return this
     }
-    fun setHeight(height:Float?):LoadingDialog{
+    fun setHeight(height:Float?): LoadingDialog {
         if (height==null)return this
         this.height = height
         return this

@@ -2,8 +2,8 @@ package com.ychong.ychongwidget.dialog
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ychong.library.OnClickListener
-import com.ychong.library.TipsDialog
+import com.ychong.library.dialog.TipsDialog
+import com.ychong.library.listener.OnListener
 import com.ychong.ychongwidget.databinding.ActivityTipsDialogBinding
 import com.ychong.ychongwidget.utils.ToastUtils
 
@@ -18,11 +18,11 @@ class TipsDialogActivity : AppCompatActivity(){
             val dialog = TipsDialog(this)
                 .setMsg("提示成功了")
                 .build()
-            dialog.setTipsListener(object : OnClickListener{
-                override fun click() {
+            dialog.setOnListener(object :
+                OnListener {
+                override fun listener() {
                     ToastUtils.showText(this@TipsDialogActivity,"知道了")
                 }
-
             })
         }
     }

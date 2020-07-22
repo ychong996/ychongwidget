@@ -1,11 +1,14 @@
-package com.ychong.library
+package com.ychong.library.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
+import com.ychong.library.R
 import com.ychong.library.databinding.DialogMessageBinding
+import com.ychong.library.listener.OnLeftListener
+import com.ychong.library.listener.OnRightListener
 import com.ychong.library.utils.ResUtils
 
 /**
@@ -15,15 +18,22 @@ import com.ychong.library.utils.ResUtils
  */
 class MessageDialog(context: Context) : Dialog(context), View.OnClickListener {
     private var binding: DialogMessageBinding? = null
-    private var messageListener: MessageListener? = null
+    private var onRightListener:OnRightListener? = null
+    private var onLeftListener:OnLeftListener? = null
     private var titleColor: Int = R.color.color_333333
     private var titleStyle: Int? = Typeface.BOLD
     private var title: String? = null
     private var msg:String? = null
     private var msgColor:Int = R.color.color_666666
     private var msgStyle:Int? = Typeface.NORMAL
-    fun setMessageListener(messageListener: MessageListener?) {
-        this.messageListener = messageListener
+
+    fun setOnRightListener(onRightListener: OnRightListener):MessageDialog{
+        this.onRightListener = onRightListener
+        return this
+    }
+    fun setOnLeftListener(onLeftListener: OnLeftListener):MessageDialog{
+        this.onLeftListener = onLeftListener
+        return this
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,16 +52,16 @@ class MessageDialog(context: Context) : Dialog(context), View.OnClickListener {
         this.title = title
         return this
     }
-    fun setTitleStyle(titleStyle:Int?) : MessageDialog{
+    fun setTitleStyle(titleStyle:Int?) : MessageDialog {
         this.titleStyle = titleStyle
         return this
     }
 
-    fun setMsg(msg:String?) : MessageDialog{
+    fun setMsg(msg:String?) : MessageDialog {
         this.msg = msg
         return this
     }
-    fun setMsgStyle(msgStyle:Int?):MessageDialog{
+    fun setMsgStyle(msgStyle:Int?): MessageDialog {
         this.msgStyle = msgStyle
         return this
     }
@@ -76,29 +86,25 @@ class MessageDialog(context: Context) : Dialog(context), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        if (messageListener == null) {
-            dismiss()
-            return
-        }
         val id = v.id
         if (id == R.id.cancelTv) {
-            messageListener!!.cancel()
+            if (onLeftListener!=null){
+                onLeftListener!!.left()
+            }
+
             dismiss()
         } else if (id == R.id.confirmTv) {
-            messageListener!!.confirm()
+            if (onRightListener!=null){
+                onRightListener!!.right()
+            }
             dismiss()
         }
     }
 
-    fun build() :MessageDialog{
+    fun build() : MessageDialog {
         show()
         initViewData()
         return this
-    }
-
-    interface MessageListener {
-        fun cancel()
-        fun confirm()
     }
 
 }

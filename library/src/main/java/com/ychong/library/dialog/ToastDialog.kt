@@ -1,9 +1,10 @@
-package com.ychong.library
+package com.ychong.library.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
+import com.ychong.library.R
 import com.ychong.library.databinding.DialogToastBinding
 
 /**
@@ -17,15 +18,13 @@ class ToastDialog(context: Context) : Dialog(context) {
     private val handler = Handler()
     private var delayTime: Long? =
         SHORT_TIME
+    private var dimAmount:Float = 0.2f
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DialogToastBinding.inflate(layoutInflater)
         setContentView(binding!!.root)
-        window?.setDimAmount(0.1f)
-        window?.setWindowAnimations(R.style.alpha_center_animation)
-        window?.setBackgroundDrawableResource(android.R.color.transparent)
     }
 
     fun setMsg(msg:String?): ToastDialog {
@@ -38,6 +37,11 @@ class ToastDialog(context: Context) : Dialog(context) {
         this.delayTime = delayTime
         return this
     }
+    fun setDimAmount(dimAmount:Float?):ToastDialog{
+        if (dimAmount==null)return this
+        this.dimAmount = dimAmount
+        return this
+    }
 
     fun build(): ToastDialog {
         show()
@@ -45,6 +49,9 @@ class ToastDialog(context: Context) : Dialog(context) {
         return this
     }
     private fun setViewDate(){
+        window?.setDimAmount(this.dimAmount)
+        window?.setWindowAnimations(R.style.alpha_center_animation)
+        window?.setBackgroundDrawableResource(android.R.color.transparent)
         binding!!.tipsTv.text = msg
         handler.postDelayed(runnable, delayTime!!)
     }

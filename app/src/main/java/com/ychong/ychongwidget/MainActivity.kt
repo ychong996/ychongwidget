@@ -49,5 +49,9 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        binding!!.ycnBtn.setOnClickListener{
+
+        }
+
     }
 }

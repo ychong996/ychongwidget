@@ -2,8 +2,7 @@ package com.ychong.ychongwidget.dialog
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ychong.library.ToastDialog
-import com.ychong.ychongwidget.R
+import com.ychong.library.dialog.ToastDialog
 import com.ychong.ychongwidget.databinding.ActivityToastDialogBinding
 
 class ToastDialogActivity : AppCompatActivity(){

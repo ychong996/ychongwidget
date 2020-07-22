@@ -2,7 +2,7 @@ package com.ychong.ychongwidget.dialog
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ychong.library.ResultDialog
+import com.ychong.library.dialog.ResultDialog
 import com.ychong.ychongwidget.R
 import com.ychong.ychongwidget.databinding.ActivityResultDialogBinding
 

@@ -2,7 +2,10 @@ package com.ychong.ychongwidget.dialog
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.ychong.library.InputDialog
+import com.ychong.library.dialog.InputDialog
+import com.ychong.library.listener.OnLeftListener
+import com.ychong.library.listener.OnRightListener
+import com.ychong.ychongwidget.R
 import com.ychong.ychongwidget.databinding.ActivityInputDialogBinding
 import com.ychong.ychongwidget.utils.ToastUtils
 
@@ -17,16 +20,19 @@ class InputDialogActivity: AppCompatActivity(){
         binding.inputTv.setOnClickListener{
             val dialog = InputDialog(this)
                 .setTitle("标题")
+                .setTitleColor(R.color.color_666666)
+                .setTitleSize(20f)
                 .setHintText("请输入内容")
                 .setDimAmount(0.2f)
                 .build()
-            dialog.setOnClickListener(object : InputDialog.OnClickListener{
-                override fun cancel() {
-                    ToastUtils.showText(this@InputDialogActivity,"取消了")
+            dialog.setOnLeftListener(object : OnLeftListener{
+                override fun left() {
+                    ToastUtils.showText(this@InputDialogActivity,"左边")
                 }
 
-                override fun confirm(remark: String?) {
-                    ToastUtils.showText(this@InputDialogActivity,remark)
+            }).setOnRightListener(object : OnRightListener{
+                override fun right() {
+                    ToastUtils.showText(this@InputDialogActivity,"右边")
                 }
 
             })

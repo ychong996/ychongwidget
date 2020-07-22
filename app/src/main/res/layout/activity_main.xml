@@ -5,9 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <com.ychong.ychongwidget.widget.YCHButton
+        android:layout_margin="@dimen/dp_16"
+        app:radius_size="@dimen/dp_16"
+        android:text="按钮"
+        android:textColor="@color/color_999999"
+        android:id="@+id/ycnBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        app:pressed_color="@color/color_999999"
+        app:normal_color="@color/color_0D71DF"/>
 <androidx.recyclerview.widget.RecyclerView
+    app:layout_constraintTop_toBottomOf="@id/ycnBtn"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="0dp"
     android:id="@+id/recycler"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
