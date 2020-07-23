@@ -28,7 +28,7 @@ class LoadingDialogActivity : AppCompatActivity() {
         dialog = LoadingDialog(this)
         dialog!!.setText("正在加载中")
             .setLoadingImg(R.mipmap.ic_loading)
-            .setTextColor(R.color.color_0D71DF)
+            .setTextColor(R.color.color_white)
             .setBackgroundColor(R.color.color_red)
             .setBackground(R.drawable.bg_333333_side_radius)
             .isCan(true)
