@@ -12,6 +12,7 @@ import com.ychong.library.databinding.DialogInputBinding
 import com.ychong.library.listener.OnLeftListener
 import com.ychong.library.listener.OnRightListener
 import com.ychong.library.utils.ResUtils
+import com.ychong.library.utils.ScreenUtils
 
 
 /**
@@ -62,6 +63,9 @@ class InputDialog : Dialog, View.OnClickListener {
     private fun initData() {
         setCancelable(false)
         setCanceledOnTouchOutside(false)
+        val lp = window?.attributes
+        lp!!.width = ScreenUtils.screenWidth - marginSpan
+        window?.attributes = lp
         window?.setWindowAnimations(R.style.alpha_center_animation)
         window?.setBackgroundDrawableResource(android.R.color.transparent)
     }

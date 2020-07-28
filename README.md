@@ -22,7 +22,6 @@
 
     }
 ```
-![](https://github.com/ychong996/ychongwidget/raw/master/images/LoadingDialog.jpg)  
 
 ###TipsDialog<br>
 ####使用<br>
