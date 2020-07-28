@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import com.ychong.library.R
 import com.ychong.library.databinding.DialogMessageBinding
@@ -25,6 +26,7 @@ class MessageDialog(context: Context) : Dialog(context), View.OnClickListener {
     private var title: String? = null
     private var msg:String? = null
     private var msgColor:Int = R.color.color_666666
+    private var msgSize:Float? = null
     private var msgStyle:Int? = Typeface.NORMAL
 
     fun setOnRightListener(onRightListener: OnRightListener):MessageDialog{
@@ -61,6 +63,11 @@ class MessageDialog(context: Context) : Dialog(context), View.OnClickListener {
         this.msg = msg
         return this
     }
+    fun setMsgSize(msgSize:Float?):MessageDialog{
+        if (msgSize==null)return this
+        this.msgSize = msgSize
+        return this
+    }
     fun setMsgStyle(msgStyle:Int?): MessageDialog {
         this.msgStyle = msgStyle
         return this
@@ -77,7 +84,10 @@ class MessageDialog(context: Context) : Dialog(context), View.OnClickListener {
                 binding!!.titleTv.setTypeface(Typeface.DEFAULT, titleStyle!!)
             }
         }
-
+        binding!!.msgTv.text = this.msg
+        if (msgSize!=null){
+            binding!!.msgTv.setTextSize(TypedValue.COMPLEX_UNIT_SP,msgSize!!)
+        }
         //文本
         binding!!.msgTv.setTextColor(ResUtils.getColor(context,msgColor))
         if (msgStyle!=null){

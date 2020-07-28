@@ -15,6 +15,7 @@ class MessageDialogActivity : AppCompatActivity(){
         binding.confirmTipsTv.setOnClickListener{
             val dialog = MessageDialog(this)
                 .setMsg("您想清楚了吗？")
+                .setMsgSize(20f)
                 .build()
         }
     }

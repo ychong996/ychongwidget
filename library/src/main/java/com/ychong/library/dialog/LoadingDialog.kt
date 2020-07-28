@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.LinearInterpolator
@@ -14,7 +15,7 @@ import com.ychong.library.utils.ResUtils
 class LoadingDialog(context: Context) : Dialog(context) {
     private var animation: Animation? = null
     private var binding: DialogLoadingBinding? = null
-    private var text: String? = null
+    private var text: String? = "请稍候..."
     private var textColor:Int? = null
     private var loadingRes: Int? =null
     private var backgroundColor: Int? =null
@@ -109,6 +110,9 @@ class LoadingDialog(context: Context) : Dialog(context) {
         window?.setWindowAnimations(R.style.alpha_center_animation)
         window?.setBackgroundDrawableResource(android.R.color.transparent)
         window?.setDimAmount(this.dimAmount)
+        if (text.isNullOrEmpty()){
+            binding!!.loadingTv.visibility= View.GONE
+        }
         binding!!.loadingTv.text = this.text
         if (this.textColor!=null){
             binding!!.loadingTv.setTextColor(ResUtils.getColor(context,this.textColor!!))
