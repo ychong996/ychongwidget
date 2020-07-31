@@ -20,6 +20,7 @@ class TipsDialog(context: Context) : Dialog(context), View.OnClickListener {
     private var tips: String? = null
     private var tipsStyle: Int? = Typeface.NORMAL
     private var onListener: OnListener? = null
+    private var isCan:Boolean = false
     fun setOnListener(onListener: OnListener): TipsDialog {
         this.onListener = onListener
         return this
@@ -57,6 +58,10 @@ class TipsDialog(context: Context) : Dialog(context), View.OnClickListener {
         return this
     }
 
+    fun setIsCan(isCan:Boolean):TipsDialog{
+        this.isCan = isCan
+        return this
+    }
     fun build(): TipsDialog {
         show()
         setViewData()
@@ -64,6 +69,8 @@ class TipsDialog(context: Context) : Dialog(context), View.OnClickListener {
     }
 
     private fun setViewData() {
+        setCancelable(isCan)
+        setCanceledOnTouchOutside(isCan)
         binding!!.tipsTv.text = tips
         if (tipsStyle != null) {
             binding!!.tipsTv.setTypeface(Typeface.DEFAULT, tipsStyle!!)

@@ -21,6 +21,7 @@ class ResultDialog(context: Context) : Dialog(context) {
     private val handler = Handler()
     private var delayTime: Long =
         SHORT_TIME
+    private var isCan:Boolean = false
     private var onListener: OnListener? = null
     fun setOnListener(onListener: OnListener): ResultDialog {
         this.onListener = onListener
@@ -54,6 +55,10 @@ class ResultDialog(context: Context) : Dialog(context) {
         return this
     }
 
+    fun setIsCan(isCan:Boolean):ResultDialog{
+        this.isCan = isCan
+        return this
+    }
     fun build(): ResultDialog {
         show()
         setViewData()
@@ -62,6 +67,8 @@ class ResultDialog(context: Context) : Dialog(context) {
 
     private fun setViewData() {
         binding!!.tipsTv.text = this.tips
+        setCancelable(isCan)
+        setCanceledOnTouchOutside(isCan)
         if (this.resultImg != null) {
             binding!!.resultIv.setImageDrawable(ResUtils.getDrawable(context, this.resultImg!!))
         }
@@ -76,7 +83,7 @@ class ResultDialog(context: Context) : Dialog(context) {
     }
 
     companion object {
-        const val SHORT_TIME: Long = 2000
-        const val LONG_TIME: Long = 3000
+        const val SHORT_TIME: Long = 1000
+        const val LONG_TIME: Long = 2000
     }
 }

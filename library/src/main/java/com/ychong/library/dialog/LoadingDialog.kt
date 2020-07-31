@@ -24,7 +24,7 @@ class LoadingDialog(context: Context) : Dialog(context) {
     private var width: Float? = null
     private var height: Float? = null
     private var delayTime: Long = 3000
-    private var dimAmount:Float = 0.2f
+    private var dimAmount:Float = 0.5f
     private var isCan:Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {

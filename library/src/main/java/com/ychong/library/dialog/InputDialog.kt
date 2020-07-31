@@ -32,10 +32,11 @@ class InputDialog : Dialog, View.OnClickListener {
     private var height: Int? = null
     private var hintText: String? = null
     private var marginSpan: Int = 100
-    private var dimAmount: Float = 0.2f
+    private var dimAmount: Float = 0.5f
     private var background: Int? = null
     private var leftBackground: Int? = null
     private var rightBackground: Int? = null
+    private var isCan:Boolean = false
 
     fun setOnRightListener(onRightListener: OnRightListener?): InputDialog {
         this.onRightListener = onRightListener
@@ -118,6 +119,10 @@ class InputDialog : Dialog, View.OnClickListener {
         this.height = height
         return this
     }
+    fun setIsCan(isCan:Boolean):InputDialog{
+        this.isCan = isCan
+        return this
+    }
 
     fun setHintText(hintText: String?): InputDialog {
         if (hintText.isNullOrEmpty()) return this
@@ -156,6 +161,8 @@ class InputDialog : Dialog, View.OnClickListener {
     }
 
     private fun setViewData() {
+        setCancelable(isCan)
+        setCanceledOnTouchOutside(isCan)
         if (title.isNullOrEmpty()) {
             binding!!.titleTv.visibility = View.GONE
         } else {

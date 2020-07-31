@@ -15,6 +15,7 @@ import com.ychong.library.databinding.DialogToastBinding
 class ToastDialog(context: Context) : Dialog(context) {
     private  var binding: DialogToastBinding?=null
     private var msg: String? = null
+    private var isCan:Boolean = false
     private val handler = Handler()
     private var delayTime: Long? =
         SHORT_TIME
@@ -30,6 +31,10 @@ class ToastDialog(context: Context) : Dialog(context) {
     fun setMsg(msg:String?): ToastDialog {
         if (msg.isNullOrEmpty())return this
         this.msg = msg
+        return this
+    }
+    fun setIsCan(isCan:Boolean):ToastDialog{
+        this.isCan = isCan
         return this
     }
     fun setDelayTime(delayTime:Long?): ToastDialog {
@@ -49,6 +54,8 @@ class ToastDialog(context: Context) : Dialog(context) {
         return this
     }
     private fun setViewDate(){
+        setCancelable(isCan)
+        setCanceledOnTouchOutside(isCan)
         window?.setDimAmount(this.dimAmount)
         window?.setWindowAnimations(R.style.alpha_center_animation)
         window?.setBackgroundDrawableResource(android.R.color.transparent)
@@ -61,7 +68,7 @@ class ToastDialog(context: Context) : Dialog(context) {
     private var runnable = Runnable { dismiss() }
 
     companion object {
-        const val SHORT_TIME: Long = 2000
-        const val LONG_TIME: Long = 3000
+        const val SHORT_TIME: Long = 1000
+        const val LONG_TIME: Long = 2000
     }
 }

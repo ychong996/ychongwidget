@@ -28,6 +28,8 @@ class MessageDialog(context: Context) : Dialog(context), View.OnClickListener {
     private var msgColor:Int = R.color.color_666666
     private var msgSize:Float? = null
     private var msgStyle:Int? = Typeface.NORMAL
+    private var isCan:Boolean = false
+    private var dimAmount:Float = 0.5f
 
     fun setOnRightListener(onRightListener: OnRightListener):MessageDialog{
         this.onRightListener = onRightListener
@@ -73,7 +75,20 @@ class MessageDialog(context: Context) : Dialog(context), View.OnClickListener {
         return this
     }
 
+    fun setIsCan(isCan:Boolean):MessageDialog{
+        this.isCan = isCan
+        return this
+    }
+    fun setDimAmount(dimAmount:Float?): MessageDialog {
+        if (dimAmount==null||dimAmount<0||dimAmount>1)return this
+        this.dimAmount = dimAmount
+        return this
+    }
+
     private fun initViewData() {
+        setCancelable(isCan)
+        setCanceledOnTouchOutside(isCan)
+        window?.setDimAmount(this.dimAmount)
         //标题
         if (title.isNullOrEmpty()) {
             binding!!.titleTv.visibility = View.GONE
