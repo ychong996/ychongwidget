@@ -167,7 +167,12 @@ class InputDialog : Dialog, View.OnClickListener {
             binding!!.titleTv.visibility = View.GONE
         } else {
             binding!!.titleTv.text = this.title
+
+        }
+        if (this.titleColor!=null){
             binding!!.titleTv.setTextColor(ResUtils.getColor(context, this.titleColor!!))
+        }
+        if (this.titleSize!=null){
             binding!!.titleTv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, this.titleSize!!)
         }
         window?.setDimAmount(this.dimAmount)
