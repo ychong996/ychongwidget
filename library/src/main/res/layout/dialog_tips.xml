@@ -1,42 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:orientation="vertical"
-    android:background="@drawable/bg_ffffff_side_radius">
-    <TextView
-        android:id="@+id/tipsTv"
-        android:layout_marginLeft="@dimen/dp_24"
-        android:layout_marginRight="@dimen/dp_24"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/dp_16"
-        android:paddingBottom="@dimen/dp_16"
-        android:textColor="@color/color_333333"
-        android:textSize="18sp"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/color_E5E5E5" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/bg_ffffff_side_radius">
+
         <TextView
-            android:background="@drawable/bg_ffffff_to_cbcbcb_bottom_radius_selector"
-            android:id="@+id/confirmTv"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:textSize="17sp"
+            android:id="@+id/tipsTv"
+            android:layout_marginLeft="@dimen/dp_24"
+            android:layout_marginRight="@dimen/dp_24"
             android:layout_gravity="center"
             android:gravity="center"
-            android:textColor="@color/color_0D71DF"
-            android:text="确认"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_16"
+            android:textColor="@color/color_333333"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/color_E5E5E5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+
+            <TextView
+                android:background="@drawable/bg_ffffff_to_cbcbcb_bottom_radius_selector"
+                android:id="@+id/confirmTv"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:textSize="17sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/color_0D71DF"
+                android:text="确认" />
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
-
-</LinearLayout>
+</layout>

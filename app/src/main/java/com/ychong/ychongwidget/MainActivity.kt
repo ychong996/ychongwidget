@@ -44,14 +44,14 @@ class MainActivity : AppCompatActivity() {
                         startActivity(Intent(this@MainActivity,
                         ToastDialogActivity::class.java))
                     }
+                    "BottomListDialog" ->{
+                        startActivity(Intent(this@MainActivity,BottomListDialogActivity::class.java))
+                    }
                 }
             }
 
         })
 
-        binding!!.ycnBtn.setOnClickListener{
-
-        }
 
     }
 }

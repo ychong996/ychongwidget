@@ -22,6 +22,7 @@
         <activity android:name=".dialog.TipsDialogActivity" />
         <activity android:name=".dialog.ResultDialogActivity" />
         <activity android:name=".dialog.ToastDialogActivity" />
+        <activity android:name=".dialog.BottomListDialogActivity" />
     </application>
 
 </manifest>

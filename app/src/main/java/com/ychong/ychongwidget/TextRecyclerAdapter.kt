@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.ychong.ychongwidget.databinding.ItemTextBinding
+import com.ychong.ychongwidget.databinding.ItemBinding
 
 class TextRecyclerAdapter(context: Context, private var list:MutableList<String>)
     :RecyclerView.Adapter<TextRecyclerAdapter.ItemViewHolder>(){
@@ -13,7 +13,7 @@ class TextRecyclerAdapter(context: Context, private var list:MutableList<String>
         this.itemClickListener = itemClickListener
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-       return ItemViewHolder(ItemTextBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+       return ItemViewHolder(ItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun getItemCount(): Int {
@@ -37,7 +37,7 @@ class TextRecyclerAdapter(context: Context, private var list:MutableList<String>
         }
     }
 
-    class ItemViewHolder(var binding: ItemTextBinding):RecyclerView.ViewHolder(binding.root)
+    class ItemViewHolder(var binding: ItemBinding):RecyclerView.ViewHolder(binding.root)
 
     interface ItemClickListener{
         fun click(item:String)

@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.text.InputFilter
 import android.text.InputFilter.LengthFilter
 import android.util.TypedValue
+import android.view.LayoutInflater
 import android.view.View
+import androidx.databinding.DataBindingUtil
 import com.ychong.library.R
 import com.ychong.library.databinding.DialogInputBinding
 import com.ychong.library.listener.OnLeftListener
@@ -20,7 +22,7 @@ import com.ychong.library.utils.ScreenUtils
  * date: 2020/5/27
  * desc:
  */
-class InputDialog : Dialog, View.OnClickListener {
+class InputDialog(context: Context) : Dialog(context), View.OnClickListener {
     private var binding: DialogInputBinding? = null
     private var onRightListener: OnRightListener? = null
     private var onLeftListener: OnLeftListener? = null
@@ -36,7 +38,7 @@ class InputDialog : Dialog, View.OnClickListener {
     private var background: Int? = null
     private var leftBackground: Int? = null
     private var rightBackground: Int? = null
-    private var isCan:Boolean = false
+    private var isCan: Boolean = false
 
     fun setOnRightListener(onRightListener: OnRightListener?): InputDialog {
         this.onRightListener = onRightListener
@@ -48,14 +50,14 @@ class InputDialog : Dialog, View.OnClickListener {
         return this
     }
 
-    constructor(context: Context) : super(context) {}
-    constructor(context: Context, marginSpan: Int) : super(context) {
-        this.marginSpan = marginSpan
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DialogInputBinding.inflate(layoutInflater)
+        binding = DataBindingUtil.inflate(
+            LayoutInflater.from(context),
+            R.layout.dialog_input,
+            null,
+            false
+        )
         setContentView(binding!!.root)
         initData()
         initListener()
@@ -119,7 +121,8 @@ class InputDialog : Dialog, View.OnClickListener {
         this.height = height
         return this
     }
-    fun setIsCan(isCan:Boolean):InputDialog{
+
+    fun setIsCan(isCan: Boolean): InputDialog {
         this.isCan = isCan
         return this
     }
@@ -169,10 +172,10 @@ class InputDialog : Dialog, View.OnClickListener {
             binding!!.titleTv.text = this.title
 
         }
-        if (this.titleColor!=null){
+        if (this.titleColor != null) {
             binding!!.titleTv.setTextColor(ResUtils.getColor(context, this.titleColor!!))
         }
-        if (this.titleSize!=null){
+        if (this.titleSize != null) {
             binding!!.titleTv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, this.titleSize!!)
         }
         window?.setDimAmount(this.dimAmount)

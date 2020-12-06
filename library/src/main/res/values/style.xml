@@ -5,4 +5,12 @@
         <item name="android:windowEnterAnimation">@anim/fade_in</item>
         <item name="android:windowExitAnimation">@anim/fade_out</item>
     </style>
+
+
+<!--    底部弹窗动画-->
+    <style name="bottom_animation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/up_in</item>
+        <item name="android:windowExitAnimation">@anim/down_out</item>
+
+    </style>
 </resources>

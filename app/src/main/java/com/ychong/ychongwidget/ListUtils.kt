@@ -9,6 +9,7 @@ object ListUtils {
         list.add("MessageDialog")
         list.add("ResultDialog")
         list.add("ToastDialog")
+        list.add("BottomListDialog")
         list.add("未知Dialog")
         return list
     }
