@@ -23,6 +23,7 @@
         <activity android:name=".dialog.ResultDialogActivity" />
         <activity android:name=".dialog.ToastDialogActivity" />
         <activity android:name=".dialog.BottomListDialogActivity" />
+        <activity android:name=".dialog.ImageViewActivity" />
     </application>
 
 </manifest>

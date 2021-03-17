@@ -47,6 +47,9 @@ class MainActivity : AppCompatActivity() {
                     "BottomListDialog" ->{
                         startActivity(Intent(this@MainActivity,BottomListDialogActivity::class.java))
                     }
+                    "YCHZoomImageView" ->{
+                        startActivity(Intent(this@MainActivity,ImageViewActivity::class.java))
+                    }
                 }
             }
 

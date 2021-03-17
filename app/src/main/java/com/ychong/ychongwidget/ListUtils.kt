@@ -10,6 +10,7 @@ object ListUtils {
         list.add("ResultDialog")
         list.add("ToastDialog")
         list.add("BottomListDialog")
+        list.add("YCHZoomImageView")
         list.add("未知Dialog")
         return list
     }
