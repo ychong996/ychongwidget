@@ -24,6 +24,7 @@
 ```
 
 ###TipsDialog<br>
+![images](./images/InputDialog.jpg)
 ####使用<br>
 ```
      val dialog = TipsDialog(this)
