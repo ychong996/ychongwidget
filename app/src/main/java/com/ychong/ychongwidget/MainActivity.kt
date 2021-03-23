@@ -5,7 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ychong.ychongwidget.databinding.ActivityMainBinding
-import com.ychong.ychongwidget.dialog.*
+import com.ychong.ychongwidget.ui.*
+import com.ychong.ychongwidget.ui.ImageViewActivity
 
 class MainActivity : AppCompatActivity() {
     private var binding:ActivityMainBinding? = null
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity() {
                             LoadingDialogActivity::class.java))
                     }
                     "TipsDialog" ->{
-                        startActivity(Intent(this@MainActivity,TipsDialogActivity::class.java))
+                        startActivity(Intent(this@MainActivity, TipsDialogActivity::class.java))
                     }
                     "InputDialog" ->{
                         startActivity(Intent(this@MainActivity,
@@ -45,10 +46,13 @@ class MainActivity : AppCompatActivity() {
                         ToastDialogActivity::class.java))
                     }
                     "BottomListDialog" ->{
-                        startActivity(Intent(this@MainActivity,BottomListDialogActivity::class.java))
+                        startActivity(Intent(this@MainActivity, BottomListDialogActivity::class.java))
                     }
                     "YCHZoomImageView" ->{
-                        startActivity(Intent(this@MainActivity,ImageViewActivity::class.java))
+                        startActivity(Intent(this@MainActivity, ImageViewActivity::class.java))
+                    }
+                    "YCHWheelPickerView" ->{
+                        startActivity(Intent(this@MainActivity, YCHWheelPickerActivity::class.java))
                     }
                 }
             }

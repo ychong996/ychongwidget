@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WheelPickerView">
+        <attr name="wpvTextSize" format="dimension"/>
+        <attr name="wpvTextColor" format="color"/>
+        <attr name="wpvTextPadding" format="dimension"/>
+        <attr name="wpvTextMaxScale" format="float"/>
+        <attr name="wpvTextMinAlpha" format="float"/>
+        <attr name="wpvMaxShowNum" format="integer"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="YCHWheelPickerView">
+        <attr name="ychTextSize" format="dimension"/>
+        <attr name="ychTextColor" format="color"/>
+        <attr name="ychCurTextColor" format="color"/>
+        <attr name="ychCurBgColor" format="color"/>
+        <attr name="ychLineColor" format="color"/>
+        <attr name="ychTextPadding" format="dimension"/>
+        <attr name="ychLineWidth" format="dimension"/>
+        <attr name="ychTextMaxScale" format="float"/>
+        <attr name="ychTextMinAlpha" format="float"/>
+        <attr name="ychGravity">
+            <flag name="top" value="0x30" />
+            <flag name="bottom" value="0x50" />
+            <flag name="left" value="0x03" />
+            <flag name="right" value="0x05" />
+        </attr>
+
+    </declare-styleable>
+</resources>

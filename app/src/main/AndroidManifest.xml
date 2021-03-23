@@ -16,14 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".dialog.LoadingDialogActivity" />
-        <activity android:name=".dialog.InputDialogActivity" />
-        <activity android:name=".dialog.MessageDialogActivity" />
-        <activity android:name=".dialog.TipsDialogActivity" />
-        <activity android:name=".dialog.ResultDialogActivity" />
-        <activity android:name=".dialog.ToastDialogActivity" />
-        <activity android:name=".dialog.BottomListDialogActivity" />
-        <activity android:name=".dialog.ImageViewActivity" />
+        <activity android:name=".ui.LoadingDialogActivity" />
+        <activity android:name=".ui.InputDialogActivity" />
+        <activity android:name=".ui.MessageDialogActivity" />
+        <activity android:name=".ui.TipsDialogActivity" />
+        <activity android:name=".ui.ResultDialogActivity" />
+        <activity android:name=".ui.ToastDialogActivity" />
+        <activity android:name=".ui.BottomListDialogActivity" />
+        <activity android:name=".ui.ImageViewActivity" />
+        <activity android:name=".ui.WheelPickerActivity" />
+        <activity android:name=".ui.YCHWheelPickerActivity" />
     </application>
 
 </manifest>

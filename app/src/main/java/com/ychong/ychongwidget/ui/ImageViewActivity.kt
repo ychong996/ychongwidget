@@ -1,4 +1,4 @@
-package com.ychong.ychongwidget.dialog
+package com.ychong.ychongwidget.ui
 
 import android.os.Build
 import android.os.Bundle

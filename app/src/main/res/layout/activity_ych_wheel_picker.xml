@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+        <com.ychong.library.YCHWheelPickerView
+            android:background="#f1f1f1"
+            android:id="@+id/ych_wpv1"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="300dp"
+            custom:ychTextColor="@color/color_999999"
+            custom:ychCurTextColor="@color/color_0D71DF"
+            custom:ychCurBgColor="@color/color_white"
+            custom:ychLineColor="@color/color_999999"
+            custom:ychLineWidth="@dimen/dp_1"
+            custom:ychTextSize="@dimen/sp_16"
+            custom:ychGravity="left"/>
+        <com.ychong.library.YCHWheelPickerView
+            android:background="#ffffff"
+            android:id="@+id/ych_wpv2"
+            android:layout_width="wrap_content"
+            android:layout_weight="1.5"
+            android:layout_height="match_parent"
+            custom:ychLineColor="@color/color_999999"
+            custom:ychLineWidth="@dimen/dp_1"
+            custom:ychTextColor="@color/color_999999"
+            custom:ychCurTextColor="@color/color_0D71DF"
+            custom:ychCurBgColor="@color/color_white"
+            custom:ychGravity="left"
+            custom:ychTextSize="@dimen/sp_16" />
+
+    </LinearLayout>
+</layout>

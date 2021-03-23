@@ -11,6 +11,8 @@ object ListUtils {
         list.add("ToastDialog")
         list.add("BottomListDialog")
         list.add("YCHZoomImageView")
+        list.add("WheelPickerView")
+        list.add("YCHWheelPickerView")
         list.add("未知Dialog")
         return list
     }
