@@ -98,6 +98,51 @@ val dialog = ToastDialog(this)
         app:normal_color="@color/color_0D71DF"/>
 ```
 
+###YCHWheelPickerView<br>
+####使用
+```
+ <com.ychong.library.YCHWheelPickerView
+            android:background="#f1f1f1"
+            android:id="@+id/ych_wpv1"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="300dp"
+            custom:ychTextColor="@color/color_999999"
+            custom:ychCurTextColor="@color/color_0D71DF"
+            custom:ychCurBgColor="@color/color_white"
+            custom:ychLineColor="@color/color_999999"
+            custom:ychLineWidth="@dimen/dp_1"
+            custom:ychTextSize="@dimen/sp_16"
+            custom:ychGravity="left"/>
+	    
+	val list1:MutableList<String> = ArrayList()
+        for (item in 0..100){
+            list1.add("XXXXXXXX $item 号")
+        }
+        binding!!.ychWpv1.setDataList(list1)
+        val list2:MutableList<String> = ArrayList()
+            for (item in 0..100){
+                list2.add("XXXXXXX $item 区")
+            }
+        binding!!.ychWpv2.setDataList(list2)
+
+        binding!!.ychWpv1.setCur(10)
+
+
+        binding!!.ychWpv1.setScrollChangedListener(object : YCHWheelPickerView.OnScrollChangedListener{
+            override fun onScrollChanged(curIndex: Int) {
+                ToastDialog(this@YCHWheelPickerActivity).setMsg(list1[curIndex]).build()
+            }
+        })
+        binding!!.ychWpv2.setScrollChangedListener(object : YCHWheelPickerView.OnScrollChangedListener{
+            override fun onScrollChanged(curIndex: Int) {
+                ToastDialog(this@YCHWheelPickerActivity).setMsg(list2[curIndex]).build()
+            }
+        })
+	    
+	    
+```
+
 ##Android依赖方式
 ```
 Step 1. Add the JitPack repository to your build file 
